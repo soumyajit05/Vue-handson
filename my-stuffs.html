@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <link rel="stylesheet" href="/public/css/app.css">
+    </head>
+    <script src="https://unpkg.com/vue@2.2.5/dist/vue.js" type="text/javascript"></script>
+    <body>
+        <div id="growler">
+            <h1> App Name -  {{appName}}</h1>
+             <input v-model=myText />   <!-- Regular Binding -->
+            <input v-model.lazy=myText />  <!-- Lazy Binding (onchange event) -->
+            <label>{{myText}}</label>
+            <div>
+                <button v-on:click="Clear">Clear !!</button>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+    let growler= new Vue({
+        el:"#growler",
+        data:{
+            appName:'FirstApp',
+            myText:''
+        },
+        methods:{
+            Clear(){
+                this.myText='';
+            }
+        }
+    });
+    </script>
+
+</html>
